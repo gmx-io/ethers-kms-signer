@@ -1,13 +1,17 @@
-# evm-kms-signer
+# ethers-kms-signer
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
 [![Node](https://img.shields.io/badge/Node-%3E%3D22.13.0-green.svg)](https://nodejs.org/)
 [![npm](https://img.shields.io/npm/v/evm-kms-signer.svg)](https://www.npmjs.com/package/evm-kms-signer)
-[![AWS KMS](https://img.shields.io/badge/AWS-KMS-orange.svg)](https://aws.amazon.com/kms/)
+
+[//]: # ([![AWS KMS]&#40;https://img.shields.io/badge/AWS-KMS-orange.svg&#41;]&#40;https://aws.amazon.com/kms/&#41;)
 [![GCP KMS](https://img.shields.io/badge/GCP-KMS-blue.svg)](https://cloud.google.com/kms)
 
-A TypeScript library that integrates AWS/GCP KMS (Key Management Service) with [viem](https://viem.sh) to create secure Ethereum signers. This allows you to sign Ethereum transactions and messages using keys stored in AWS or GCP KMS, providing enterprise-grade security for your Ethereum operations.
+
+## Ethers.js compatible GCP KMS. AWS is _not_ ethers.js compatible atm
+
+A TypeScript library that integrates GCP KMS (Key Management Service) with [viem](https://viem.sh) to create secure Ethereum signers. This allows you to sign Ethereum transactions and messages using keys stored in AWS or GCP KMS, providing enterprise-grade security for your Ethereum operations.
 
 ## Features
 
@@ -434,14 +438,3 @@ pnpm example:tx
 ## License
 
 MIT
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Acknowledgments
-
-- Built with [viem](https://viem.sh) - Modern TypeScript Ethereum library
-- Uses [AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/)
-- Uses [Google Cloud KMS Client Library](https://cloud.google.com/nodejs/docs/reference/kms/latest)
-- Inspired by the need for secure key management in Ethereum applications
