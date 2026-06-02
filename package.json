@@ -1,0 +1,81 @@
+{
+	"name": "kms-signer",
+	"version": "1.0.1",
+	"description": "Ethers.js compatible GCP-KMS signer",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
+	"keywords": [
+		"ethereum",
+		"aws",
+		"kms",
+		"gcp",
+		"google-cloud",
+		"viem",
+		"signer",
+		"evm",
+		"crypto",
+		"blockchain",
+		"wallet",
+		"security"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gtg7784/evm-kms-signer.git"
+	},
+	"bugs": {
+		"url": "https://github.com/gtg7784/evm-kms-signer/issues"
+	},
+	"homepage": "https://github.com/gtg7784/evm-kms-signer#readme",
+	"scripts": {
+		"type-check": "tsc --noEmit",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"start": "tsx src/index.ts",
+		"build": "tsc",
+		"test": "vitest",
+		"test:ui": "vitest --ui",
+		"test:run": "vitest run",
+		"test:coverage": "vitest run --coverage",
+		"example:sign": "tsx examples/sign-message.ts",
+		"example:tx": "tsx examples/send-transaction.ts",
+		"example:gcp-sign": "tsx examples/gcp-sign-message.ts",
+		"example:gcp-tx": "tsx examples/gcp-send-transaction.ts"
+	},
+	"author": "Solar dev <call.solar.dev@gmail.com>",
+	"license": "MIT",
+	"engines": {
+		"node": ">=22.13.0"
+	},
+	"packageManager": "pnpm@11.2.2",
+	"peerDependencies": {
+		"viem": "^2.0.0"
+	},
+	"dependencies": {
+		"@aws-sdk/client-kms": "^3.0.0",
+		"@google-cloud/kms": "^5.2.1",
+		"abitype": "^1.1.1",
+		"ethers": "5.7.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.10",
+		"@types/node": "^24.10.0",
+		"@vitest/coverage-v8": "4.1.7",
+		"dotenv": "^17.2.3",
+		"tsx": "^4.20.6",
+		"typescript": "^6.0.0",
+		"viem": "^2.0.0",
+		"vitest": "^4.0.8"
+	}
+}
