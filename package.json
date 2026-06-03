@@ -1,6 +1,6 @@
 {
 	"name": "@gmx-io/ethers-kms-signer",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Ethers.js compatible GCP-KMS signer",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
