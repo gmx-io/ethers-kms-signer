@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
 [![Node](https://img.shields.io/badge/Node-%3E%3D22.13.0-green.svg)](https://nodejs.org/)
-[![npm](https://img.shields.io/npm/v/evm-kms-signer.svg)](https://www.npmjs.com/package/evm-kms-signer)
+[![npm](https://img.shields.io/npm/v/@gmx-io/ethers-kms-signer.svg)](https://www.npmjs.com/package/@gmx-io/ethers-kms-signer)
 
 [//]: # ([![AWS KMS]&#40;https://img.shields.io/badge/AWS-KMS-orange.svg&#41;]&#40;https://aws.amazon.com/kms/&#41;)
 [![GCP KMS](https://img.shields.io/badge/GCP-KMS-blue.svg)](https://cloud.google.com/kms)
@@ -27,19 +27,19 @@ A TypeScript library that integrates GCP KMS (Key Management Service) with [viem
 ## Installation
 
 ```bash
-pnpm add evm-kms-signer
+pnpm add @gmx-io/ethers-kms-signer
 ```
 
 Or with npm:
 
 ```bash
-npm install evm-kms-signer
+npm install @gmx-io/ethers-kms-signer
 ```
 
 Or with yarn:
 
 ```bash
-yarn add evm-kms-signer
+yarn add @gmx-io/ethers-kms-signer
 ```
 
 ## Usage
@@ -81,7 +81,7 @@ AWS_SECRET_ACCESS_KEY=your_secret_key
 
 ```typescript
 import 'dotenv/config'
-import { KmsSigner, toKmsAccount } from 'evm-kms-signer'
+import { KmsSigner, toKmsAccount } from '@gmx-io/ethers-kms-signer'
 
 async function main() {
   // Initialize the KMS signer
@@ -111,7 +111,7 @@ main().catch(console.error)
 import 'dotenv/config'
 import { createWalletClient, http } from 'viem'
 import { sepolia } from 'viem/chains'
-import { KmsSigner, toKmsAccount } from 'evm-kms-signer'
+import { KmsSigner, toKmsAccount } from '@gmx-io/ethers-kms-signer'
 
 async function main() {
   // Initialize the KMS signer
@@ -195,7 +195,7 @@ When credentials are not explicitly provided, the SDK automatically discovers av
 
 4. **Use the library without explicit credentials**:
    ```typescript
-   import { KmsSigner, toKmsAccount } from 'evm-kms-signer'
+   import { KmsSigner, toKmsAccount } from '@gmx-io/ethers-kms-signer'
 
    // No credentials needed - EKS Pod Identity handles authentication
    const signer = new KmsSigner({
@@ -244,7 +244,7 @@ kubectl exec -it <pod-name> -- env | grep AWS_CONTAINER
 #### Basic Usage
 
 ```typescript
-import { GcpSigner } from 'evm-kms-signer';
+import { GcpSigner } from '@gmx-io/ethers-kms-signer';
 
 const signer = new GcpSigner({
   projectId: 'your-project-id',
@@ -264,7 +264,7 @@ const signature = await signer.signMessage({ message: 'Hello!' });
 ```typescript
 import { createWalletClient, http } from 'viem';
 import { mainnet } from 'viem/chains';
-import { toGcpKmsAccount } from 'evm-kms-signer';
+import { toGcpKmsAccount } from '@gmx-io/ethers-kms-signer';
 
 const account = await toGcpKmsAccount(signer);
 const client = createWalletClient({

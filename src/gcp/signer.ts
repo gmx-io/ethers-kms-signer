@@ -37,7 +37,7 @@ import { GcpKmsCore } from './core.js';
  * @example
  * ```typescript
  * import { ethers } from 'ethers'
- * import { GcpSigner } from 'evm-kms-signer'
+ * import { GcpSigner } from '@gmx-io/ethers-kms-signer'
  *
  * const signer = new GcpSigner({
  *   projectId: 'my-project',

@@ -1,5 +1,5 @@
 {
-	"name": "kms-signer",
+	"name": "@gmx-io/ethers-kms-signer",
 	"version": "1.0.1",
 	"description": "Ethers.js compatible GCP-KMS signer",
 	"main": "./dist/index.js",
@@ -32,12 +32,12 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/gtg7784/evm-kms-signer.git"
+		"url": "git+https://github.com/gmx-io/ethers-kms-signer.git"
 	},
 	"bugs": {
-		"url": "https://github.com/gtg7784/evm-kms-signer/issues"
+		"url": "https://github.com/gmx-io/ethers-kms-signer/issues"
 	},
-	"homepage": "https://github.com/gtg7784/evm-kms-signer#readme",
+	"homepage": "https://github.com/gmx-io/ethers-kms-signer#readme",
 	"scripts": {
 		"type-check": "tsc --noEmit",
 		"lint": "biome check .",
@@ -64,6 +64,14 @@
 	},
 	"dependencies": {
 		"@aws-sdk/client-kms": "^3.0.0",
+		"@ethersproject/abstract-provider": "5.7.0",
+		"@ethersproject/abstract-signer": "5.7.0",
+		"@ethersproject/address": "5.7.0",
+		"@ethersproject/bytes": "5.7.0",
+		"@ethersproject/hash": "5.7.0",
+		"@ethersproject/keccak256": "5.7.0",
+		"@ethersproject/properties": "5.7.0",
+		"@ethersproject/transactions": "5.7.0",
 		"@google-cloud/kms": "^5.2.1",
 		"abitype": "^1.1.1",
 		"ethers": "5.7.2"

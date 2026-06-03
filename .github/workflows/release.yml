@@ -1,16 +1,25 @@
-name: Release and Publish
+name: Publish Package
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      npm_tag:
+        description: "npm dist-tag"
+        required: true
+        default: "next"
+        type: choice
+        options:
+          - next
+          - latest
 
 permissions:
-  contents: read
   id-token: write
+  contents: read
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -18,8 +27,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@gmx-io"
 
       - name: Upgrade npm for OIDC Trusted Publishing
         run: npm install -g npm@latest
@@ -52,16 +62,25 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Update package version
-        run: |
-          # Extract version from GitHub Release tag (e.g., v1.0.0 -> 1.0.0)
-          VERSION="${GITHUB_REF#refs/tags/v}"
-          echo "Publishing version: $VERSION"
+      - name: Test package
+        run: npm pack --dry-run
 
-          # Update package.json version
-          npm version $VERSION --no-git-tag-version --allow-same-version
-        env:
-          GITHUB_REF: ${{ github.ref }}
+      - name: Validate npm publish target
+        run: |
+          PACKAGE_NAME=$(jq -r .name package.json)
+          VERSION=$(jq -r .version package.json)
+
+          if [ "${{ inputs.npm_tag }}" = "latest" ] && [[ "$VERSION" == *-* ]]; then
+            echo "Refusing to publish prerelease version $VERSION with latest tag"
+            exit 1
+          fi
+
+          if npm view "$PACKAGE_NAME@$VERSION" version > /dev/null 2>&1; then
+            echo "$PACKAGE_NAME@$VERSION is already published"
+            exit 1
+          fi
 
       - name: Publish to npm
-        run: pnpm publish --provenance --access public --no-git-checks
+        run: npm publish --provenance --access public --tag "${{ inputs.npm_tag }}"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
