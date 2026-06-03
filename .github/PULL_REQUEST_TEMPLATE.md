@@ -119,9 +119,9 @@ pnpm test:run
 <!-- Final checklist before submitting -->
 
 - [ ] I have read the [CONTRIBUTING.md](../CONTRIBUTING.md) guide
-- [ ] My branch is up to date with the main branch
+- [ ] My branch is up to date with the master branch
 - [ ] All CI checks pass
-- [ ] I have tested this on Node.js 18, 20, and 22 (or verified CI does this)
+- [ ] I have tested this on Node.js 22 and 24 (or verified CI does this)
 - [ ] I have updated the CHANGELOG.md (if applicable)
 - [ ] This PR is ready for review
 
@@ -140,6 +140,6 @@ pnpm test:run
 ---
 
 <!--
-Thank you for contributing to evm-kms-signer!
+Thank you for contributing to ethers-kms-signer!
 Please ensure all checkboxes are marked before requesting a review.
 -->
